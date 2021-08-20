@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} My Competitions {% endblock %}</h1>
+    
+    {% for competition in competitions %}
+        <a href="{{ url_for('competition_post', competition_id=competition['id']) }}">
+            <h2>{{ competition['shoton'] }} - {{ competition['sporttype'] }} - {{ competition['title'] }}</h2>
+        </a>
+        <span class="badge badge-info">Score: {{ competition['score'] }}</span>
+        <span class="badge badge-info">Shot on: {{ competition['shoton'] }}</span>
+        <a href="{{ url_for('competition_edit', id=competition['id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
+        <hr>
+    {% endfor %}
+{% endblock %}

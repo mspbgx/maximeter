@@ -1,0 +1,13 @@
+h1 {
+    border: 1px #eee solid;
+    color: red;
+    text-align: center;
+    padding: 10px;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: black;
+  }

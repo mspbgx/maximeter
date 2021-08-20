@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Edit "{{ competition['title'] }}" {% endblock %}</h1>
+
+<form method="post">
+
+    <div class="form-group row">
+        <label>
+            Shot on: 
+            <input type="date" id="shoton" name="shoton" value="{{ request.form['shoton'] or competition['shoton'] }}">
+        </label>
+    </div>
+
+    <div class="form-group row">
+      <label for="title">Title</label>
+
+      <input type="text" name="title"
+             placeholder="Competition title" class="form-control"
+             value="{{ request.form['title'] or competition['title'] }}"></input>
+    </div>
+    <div class="form-group row">
+        <label for="content">Content</label>
+        <input type="text" name="content"
+               placeholder="Content" class="form-control"
+               value="{{ request.form['content'] or competition['content'] }}"></input>
+    </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Type</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sporttype" id="sporttype1" value="training" checked>
+            <label class="form-check-label" for="gridRadios1">
+              Training
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sporttype" id="sporttype2" value="match">
+            <label class="form-check-label" for="gridRadios2">
+              Match
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Shots</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="seriestype" id="seriestype40" value="seriestype40" checked>
+              <label class="form-check-label" for="gridRadios1">
+                40 shots
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="seriestype" id="seriestype60" value="seriestype60">
+              <label class="form-check-label" for="gridRadios2">
+                60 shots
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="score">Score</label>
+          <input type="number" name="score"
+               placeholder="Score" class="form-control"
+               value="{{ request.form['score'] or score['score'] }}""></input>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="series">Serie 1</label>
+          <input type="number" name="serie1"
+               placeholder="Serie 1" class="form-control"
+               value="{{ request.form['serie1'] or score['serie1'] }}""></input>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="series">Serie 2</label>
+            <input type="number" name="serie2"
+                 placeholder="Serie 2" class="form-control"
+                 value="{{ request.form['serie2'] or score['serie2'] }}""></input>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="series">Serie 3</label>
+            <input type="number" name="serie3"
+                 placeholder="Serie 3" class="form-control"
+                 value="{{ request.form['serie3'] or score['serie3'] }}""></input>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="series">Serie 4</label>
+            <input type="number" name="serie4"
+                 placeholder="Serie 4" class="form-control"
+                 value="{{ request.form['serie4'] or score['serie4'] }}""></input>
+        </div>
+      </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </form>
+
+<hr>
+<form action="{{ url_for('competition_delete', id=competition['id']) }}" method="POST">
+    <input type="submit" value="Delete Competition"
+            class="btn btn-danger btn-sm"
+            onclick="return confirm('Are you sure you want to delete this competition?')">
+</form>
+{% endblock %}

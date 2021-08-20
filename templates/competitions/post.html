@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ competition['title'] }} {% endblock %}</h2> 
+    <a href="{{ url_for('competition_edit', id=competition['id']) }}">
+        <span class="badge badge-warning">Edit</span>
+    </a>
+    <a href="{{ url_for('competition_chart', competition_id=competition['id']) }}">
+        <span class="badge badge-primary">Charts</span>
+    </a>
+    <hr>
+    <h5>Score: {{ score['score'] }}</h3>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Shot on</th>
+            <th scope="col">Created on</th>
+            <th scope="col">Updated on</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ competition['shoton'] }}</td>
+            <td>{{ competition['created'] }}</td>
+            <td>{{ competition['updated'] }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Serie</th>
+            {% for i in range(1, 11) %}
+            <td>{{ i }}</td>
+            {% endfor %}
+            <th scope="col">SUM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            {% for i in range(1, 11) %}
+            <td>{{ shots['shot' + i|string] }}</td>
+            {% endfor %}
+            <th scope="row">{{ score['serie1'] }}</th>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            {% for i in range(11, 21) %}
+            <td>{{ shots['shot' + i|string] }}</td>
+            {% endfor %}
+            <th scope="row">{{ score['serie2'] }}</th>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            {% for i in range(21, 31) %}
+            <td>{{ shots['shot' + i|string] }}</td>
+            {% endfor %}
+            <th scope="row">{{ score['serie3'] }}</th>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            {% for i in range(31, 41) %}
+            <td>{{ shots['shot' + i|string] }}</td>
+            {% endfor %}
+            <th scope="row">{{ score['serie4'] }}</th>
+          </tr>
+        </tbody>
+      </table>
+    <hr>    
+
+{% endblock %}

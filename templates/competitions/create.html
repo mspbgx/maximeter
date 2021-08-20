@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Create a New Competition {% endblock %}</h1>
+
+<form method="post">
+
+    <div class="form-group row">
+        <label>
+            Shot on: 
+            <input type="date" id="shoton" name="shoton" value="{{ request.form['shoton'] }}">
+        </label>
+    </div>
+
+    <div class="form-group row">
+      <label for="title">Title</label>
+
+      <input type="text" name="title"
+             placeholder="Competition title" class="form-control"
+             value="{{ request.form['title'] }}"></input>
+    </div>
+    <div class="form-group row">
+        <label for="content">Content</label>
+        <input type="text" name="content"
+               placeholder="Content" class="form-control"
+               value="{{ request.form['content'] }}"></input>
+    </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Type</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sporttype" id="sporttype1" value="training" checked>
+            <label class="form-check-label" for="gridRadios1">
+              Training
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sporttype" id="sporttype2" value="match">
+            <label class="form-check-label" for="gridRadios2">
+              Match
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Shots</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="seriestype" id="seriestype40" value="seriestype40" checked>
+              <label class="form-check-label" for="gridRadios1">
+                40 shots
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="seriestype" id="seriestype60" value="seriestype60">
+              <label class="form-check-label" for="gridRadios2">
+                60 shots
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="score">Score</label>
+          <input type="number" name="score"
+               placeholder="Score" class="form-control"
+               value="{{ request.form['score'] }}"></input>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="series">Serie 1</label>
+          <input type="number" name="serie1"
+               placeholder="Serie 1" class="form-control"
+               value="{{ request.form['serie1'] }}"></input>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="series">Serie 2</label>
+            <input type="number" name="serie2"
+                 placeholder="Serie 2" class="form-control"
+                 value="{{ request.form['serie2'] }}"></input>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="series">Serie 3</label>
+            <input type="number" name="serie3"
+                 placeholder="Serie 3" class="form-control"
+                 value="{{ request.form['serie3'] }}"></input>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="series">Serie 4</label>
+            <input type="number" name="serie4"
+                 placeholder="Serie 4" class="form-control"
+                 value="{{ request.form['serie4'] }}"></input>
+        </div>
+      </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}
