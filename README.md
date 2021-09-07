@@ -1,5 +1,5 @@
-# Maximeter - A web application to store your shooting scores
-Maximeter is written in Python.
+# MaxiShootingResults - A web application to store your shooting results
+MaxiShootingResults is written in Python.
 
 Quick start:
 ~~~
