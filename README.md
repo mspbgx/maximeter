@@ -1,4 +1,4 @@
-# MaxiShootingResults - A web application to store your shooting results
+# MaxS - ShootingResults - A web application to store your shooting results
 MaxiShootingResults is written in Python.
 
 Quick start:
